@@ -1,0 +1,504 @@
+/* =============================
+   Aizat Portfolio — Styles.css (v2)
+   ============================= */
+
+/* Theme tokens */
+:root{
+  --bg:#f5f5f5;
+  --paper:#ffffff;
+  --ink:#0e0e0e;
+  --muted:#606060;
+  --radius:14px;
+
+  /* Chip palette */
+  --c1:#FFDC23;
+  --c2:#661FFF;
+  --c3:#F8376E;
+  --c4:#00FCAA;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family: 'Rubik', system-ui, 'Bungee';
+  font-weight: 900;
+  color: #000;
+}
+
+/* Accessibility helpers */
+a:focus-visible, button:focus-visible{ outline:3px solid #7c5cff; outline-offset:3px }
+.visually-hidden{ position:absolute !important; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0,0,0,0) }
+
+/* Skip link */
+.skip-link{ position:absolute; top:-40px; left:8px; z-index:1000; padding:8px 14px; background:#111; color:#fff; border-radius:10px; text-decoration:none; font-weight:700 }
+.skip-link:focus{ top:8px }
+
+/* Header (appears after scroll) */
+.hdr{ position:fixed; top:10px; left:14px; z-index:40; transform:scale(.001); transform-origin:left top; transition:transform .35s cubic-bezier(.2,.7,0,1) }
+.hdr.show{ transform:scale(1) }
+.hdr__logo{ width:116px; height:auto; display:block }
+
+/* Hand button */
+.hand{ position:fixed; top:12px; right:16px; z-index:45; background:#e5e5e5; border:0; border-radius:11px; box-shadow:inset 0 0 0 2px var(--ink); padding:0; cursor:pointer }
+.hand__inner{ display:flex; align-items:center; justify-content:center; height:45px; padding:12px 16px; border:2px solid var(--ink); border-radius:10px; background:#fff; transform:translateY(-4px); font-size:22px }
+.hand__icon{ width:32px; height:auto; pointer-events:none }
+.hand:active .hand__inner{ transform:translateY(0) }
+
+/* Drawer */
+.drawer{ position:fixed; top:4.5rem; right:1.5rem; width:20rem; max-width:92vw; background:#fff; border:2.842px solid var(--ink); border-radius:1.1295rem; box-shadow:0 8px 0 var(--ink); display:flex; flex-direction:column; justify-content:center; align-items:center; transform:translateX(120%); transition:transform .35s cubic-bezier(.2,.7,0,1); z-index:40 }
+.drawer.open{ transform:translateX(0) }
+.drawer__body{ width:100%; padding:1.5rem 2rem; text-align:center }
+.drawer__nav{ display:flex; flex-direction:column; gap:1rem; margin:0 }
+.drawer__link{ display:block; font-size:1.75rem; font-weight:500; color:var(--ink); text-decoration:none; border:2px solid transparent; padding:.5rem 0; transition:color .2s, border-color .2s }
+.drawer__link:hover,.drawer__link:focus{ border-color:var(--ink); color:#000 }
+
+/* Scallops */
+/* Scallops: add -webkit-mask for cross-browser - circle centers at bottom edge (30px circles) */
+.scallop{ position:relative; height:60px; width:100%; background:var(--bg); mask:radial-gradient(30px at 30px 60px,#000 98%, transparent 101%) left/60px 60px repeat-x; -webkit-mask:radial-gradient(30px at 30px 60px,#000 98%, transparent 101%) left/60px 60px repeat-x; display:block }
+/* Hero scallop: first scallop, matches About section color */
+.scallop--hero{ position:absolute; bottom:0; left:0; width:100%; background:#CDCDCD; z-index:1; pointer-events:none; }
+/* About scallop: downward-facing half circles with centers at end of about section */
+.scallop--about{ position:absolute; bottom:-40px; left:0; width:100%; height:90px; background:#CDCDCD; z-index:1; pointer-events:none; mask:radial-gradient(30px at 30px 30px, #000 98%, transparent 101%) left/60px 60px repeat-x; -webkit-mask:radial-gradient(30px at 30px 30px, #000 98%, transparent 101%) left/60px 60px repeat-x; clip-path:inset(30px 0 0 0); -webkit-clip-path:inset(30px 0 0 0); }
+/* Works scallop: matches next section (Footer) color */
+.scallop--works{ position:absolute; bottom:0; left:0; width:100%; background:#fff; z-index:1; pointer-events:none; }
+/* Footer scallop: matches page background */
+.scallop--foot{ position:absolute; bottom:0; left:0; width:100%; background:var(--bg); z-index:1; pointer-events:none; }
+/* Project page scallop: upward-facing, matches content background */
+.scallop--project{ position:absolute; top:0; left:0; width:100%; background:var(--bg); z-index:1; pointer-events:none; }
+
+/* =========================
+   HERO
+   ========================= */
+.hero{ min-height:100svh; position:relative; display:flex; flex-direction:column; align-content:center; align-items:flex-end; text-align:right; padding:8.75rem 5vw 18vh; background:#E9E9E9 }
+.hero__title{ font-family:'Rubik', sans-serif; font-size:clamp(52px,8vw,92px); font-weight:900; line-height:1.1; letter-spacing:.02931rem; color:#000; text-align:right; margin:0 0 10px }
+.playful{ border:0; background:transparent; padding:0; cursor:pointer }
+.playful__wrap{ display:flex; width:28.0625rem; height:10.25rem; padding:0 1.125rem; flex-direction:row; align-items:flex-start; flex-shrink:0 }
+.playful__letter{ color:#000; text-align:center; font-family:'Bungee', sans-serif; font-size:9.375rem; font-weight:400; line-height:10.25rem; letter-spacing:.02931rem; display:inline-block; transition:transform .18s ease, text-shadow .18s ease; will-change:transform, text-shadow; --offset:.625rem; --shadow:#000 }
+.playful__letter:nth-child(1){ --shadow:var(--c1) }
+.playful__letter:nth-child(2){ --shadow:var(--c2) }
+.playful__letter:nth-child(3){ --shadow:var(--c3) }
+.playful__letter:nth-child(4){ --shadow:var(--c4) }
+.playful:hover .playful__letter{ transform:translate(-.125rem,-.125rem); text-shadow:var(--offset) var(--offset) 0 var(--shadow) }
+
+/* Tactile strip */
+.tactile{ display:inline-flex; gap:0; vertical-align:middle }
+.key{ display:flex; padding:.57419rem 1.87569rem .55075rem 1.87425rem; justify-content:center; align-items:center; align-self:stretch; border-radius:1.17188rem; border:.184rem solid #0E0E0E; background:#FFF; box-shadow:0 .5rem 0 #0E0E0E; transform:translateY(-.25rem); transition:transform .08s ease, box-shadow .08s ease, background .2s ease; color:#0E0E0E; text-align:center; font-family:"Fira Code", ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; font-size:3.6875rem; font-weight:500; line-height:4.39063rem; margin:0; cursor:pointer; background-clip:padding-box }
+.tactile .key + .key{ margin-left:-.184rem }
+.key:active,.key.is-pressed{ transform:translateY(0); box-shadow:0 0 0 #0E0E0E }
+.key:focus-visible{ outline:.2rem solid #0E0E0E; outline-offset:.15rem }
+
+.hero__logo{ position:absolute; left:50%; top:80%; transform:translateX(-50%); bottom:max(8vh,2rem); z-index:8; pointer-events:none }
+.hero__logo img{ width:clamp(10rem,27vw,32rem); height:auto; display:block }
+
+/* TABLET BREAKPOINT */
+@media (max-width:64rem){
+  .hero__title{ font-size:clamp(36px,7.3vw,92px); line-height:1.1 }
+  .playful__letter{ font-size:clamp(5rem, 12vw, 8rem); line-height:1em }
+  .key{ font-size:clamp(2rem, 5vw, 3rem); padding:.4em .6em .38em .6em }
+  .about{ min-height:auto }
+  .about__title{ font-size:clamp(36px,7vw,92px) }
+  .about__txt{ font-size:clamp(1rem, 3vw, 1.25rem) }
+  .about__cta{ font-size:clamp(0.9rem, 2vw, 1rem) }
+  .card{ height:auto; min-height:600px }
+  .card__name{ font-size:clamp(1.1rem, 2.5vw, 1.3rem) }
+  .card__role{ font-size:clamp(0.85rem, 2vw, 1rem) }
+  .card__body{ font-size:clamp(1rem, 2.5vw, 1.25rem); min-height:400px }
+  .proj{ width:100%; max-width:31.25rem }
+  .proj__title{ font-size:clamp(36px,7vw,92px) }
+  .chip{ font-size:clamp(0.65rem, 1.5vw, 0.75rem); padding:0.4rem 1.2rem }
+  .works .filter{ flex-direction:column; width:auto; max-width:100% }
+  .works .seg{ font-size:clamp(0.85rem, 2vw, 0.95rem) }
+  .foot__sub{ font-size:clamp(1rem, 2vw, 1.25rem) }
+  .foot__copy{ font-size:clamp(0.7rem, 2.5vw, 0.8rem) }
+  .foot__links a{ font-size:clamp(1rem, 2.5vw, 1.2rem) }
+  .btn__inner{ font-size:clamp(0.9rem, 2vw, 1rem); padding:10px 16px }
+  .keycap span{ padding:10px 14px }
+  .keycap span img{ width:clamp(24px, 5vw, 28px) }
+  .drawer__link{ font-size:clamp(1.3rem, 3vw, 1.5rem) }
+  .hdr__logo{ width:clamp(80px, 15vw, 100px) }
+}
+
+/* PHONE BREAKPOINT */
+@media (max-width:48rem){
+  .hero{ align-items:center; text-align:center; padding:2rem 1.25rem 8rem }
+  .hero__title{ text-align:center; font-size:clamp(36px,7vw,92px); line-height:1.1 }
+  .playful__wrap{ width:auto; height:auto; padding:0 .5rem; justify-content:center }
+  .playful__letter{ font-size:clamp(3.5rem, 18vw, 7rem); line-height:1em }
+  .tactile{ flex-wrap:wrap; justify-content:center; gap:.25rem }
+  .key{ font-size:clamp(1.5rem, 8.5vw, 2.75rem); padding:.35em .5em .32em .5em; border-radius:.9rem; box-shadow:0 .35rem 0 #0E0E0E; transform:translateY(-.2rem) }
+  .tactile .key + .key{ margin-left:-.14rem }
+  .about__title{ font-size:clamp(36px,7vw,92px) }
+  .about__txt{ font-size:clamp(1rem, 4vw, 1.25rem) }
+  .about__cta{ font-size:clamp(0.8rem, 3vw, 0.95rem) }
+  .card{ height:auto; min-height:500px }
+  .card__name{ font-size:clamp(1rem, 4vw, 1.25rem) }
+  .card__role{ font-size:clamp(0.8rem, 3vw, 0.95rem) }
+  .card__body{ font-size:clamp(1rem, 3.5vw, 1.25rem); min-height:350px }
+  .proj{ width:100%; max-width:100% }
+  .proj__title{ font-size:clamp(36px,7vw,92px) }
+  .chip{ font-size:clamp(0.6rem, 2.5vw, 0.7rem); padding:0.35rem 1rem }
+  /* Remove chaotic vertical placement on mobile - cards in straight column */
+  .proj:nth-child(n) { transform: translateY(0) !important; }
+  .works .filter{ flex-direction:column; width:auto; max-width:100% }
+  .works .seg{ font-size:clamp(0.75rem, 3vw, 0.9rem); padding:10px 14px; width:100% }
+  .foot__sub{ font-size:clamp(1rem, 3.5vw, 1.25rem) }
+  .foot__copy{ font-size:clamp(0.7rem, 4vw, 0.8rem) }
+  .foot__links a{ font-size:clamp(0.9rem, 4vw, 1.1rem) }
+  .btn__inner{ font-size:clamp(0.8rem, 3vw, 0.95rem); padding:8px 14px }
+  .keycap span{ padding:8px 12px }
+  .keycap span img{ width:clamp(20px, 6vw, 24px) }
+  .drawer__link{ font-size:clamp(1.2rem, 5vw, 1.4rem) }
+  .hdr__logo{ width:clamp(70px, 20vw, 90px) }
+}
+@media (max-width:23.4375rem){ 
+  .hero{ padding:1.5rem 1rem 6rem } 
+  .key{ font-size:clamp(1.35rem, 9.5vw, 2.25rem) }
+  .about__title{ font-size:clamp(36px,7vw,92px) }
+  .about__txt{ font-size:clamp(1rem, 5vw, 1.25rem) }
+  .card__body{ font-size:clamp(1rem, 4vw, 1.25rem) }
+  .proj__title{ font-size:clamp(36px,7vw,92px) }
+}
+
+/* Dock trigger */
+body.shrunk .hero__logo{ opacity:0 }
+body.shrunk .hdr{ transform:scale(1) }
+
+/* =========================
+   ABOUT
+   ========================= */
+.about{ position:relative; min-height:900px; display:grid; grid-template-columns:minmax(0,70%) minmax(260px,30%); gap:5vw; align-items:center; padding:10vh 5vw 10vh; background:#CDCDCD }
+.about__left{ display:flex; flex-direction:column; gap:3rem }
+.about__title{ color:#0E0E0E; font-family:'Rubik', sans-serif; font-size:clamp(36px,7vw,92px); font-weight:900; letter-spacing:.02931rem; margin:0 }
+.about__txt{ color:#000; font-family:'Rubik', sans-serif; font-size:1.25rem; font-style:normal; font-weight:400; line-height:1.6; letter-spacing:0.05863rem; max-width:56ch; margin:0 }
+.about__email a{ color:var(--ink); text-decoration:none; border-bottom:2px solid var(--ink); font-weight:800 }
+.about__cta{ color:#0E0E0E; text-align:center; font-family:'Rubik', sans-serif; font-size:1.08125rem; font-weight:500; line-height:1.245rem; letter-spacing:.08788rem; text-transform:uppercase; display:inline-block; width:auto; max-width:fit-content }
+.about__cta .btn__inner{ padding:12px 24px }
+
+.card{ background:#f5f5f5; border:2px solid var(--ink); border-radius:10px; padding:16px; box-shadow:0 14px 0 0 var(--ink); height:700px }
+.card__top{ display:grid; grid-template-columns:64px 1fr; gap:12px; align-items:center; border:1.5px solid var(--ink); border-radius:8px; background:#fff; padding:10px }
+.card__avatar{ width:64px; height:64px }
+.card__avatar img{ display:block; width:100%; height:100%; object-fit:cover; border-radius:50%; background:#fff; border:4px solid #111 }
+.card__name{ color:#000; font-family:Rubik; font-size:1.40625rem; font-weight:500; line-height:1.6175rem }
+.card__role{ color:#000; font-family:Rubik; font-size:1.0125rem; font-weight:400; line-height:1.3125rem; letter-spacing:.02813rem }
+.card__body{ margin:12px 0; border:1.5px solid var(--ink); border-radius:8px; background:#111; color:#fff; min-height:465px; padding:14px; font-family:'Rubik', sans-serif; font-size:1.25rem; font-style:normal; font-weight:400; line-height:1.6; letter-spacing:0.05863rem; max-width:56ch; margin-bottom:2.5rem }
+.typed::after{ content:""; display:inline-block; width:10px; height:1.2em; margin-left:4px; background:#fff; animation:blink 1s steps(1,end) infinite }
+@keyframes blink{ 50%{ opacity:0 } }
+.card__actions{ display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin-top:12px }
+.keycap{ background:#e5e5e5; border:0; border-radius:11px; box-shadow:inset 0 0 0 2px var(--ink); padding:0; text-decoration:none; color:inherit; display:inline-block; width:100% }
+.keycap span{ display:flex; align-items:center; justify-content:center; border:2px solid var(--ink); border-radius:10px; background:#fff; transform:translateY(-4px); padding:12px 18px; font-weight:900; letter-spacing:.06em }
+.keycap span img{ width:32px; height:auto; pointer-events:none }
+.keycap:active span{ transform:translateY(0) }
+
+/* mobile layout */
+@media (max-width:900px){
+  .about{ grid-template-columns:1fr; gap:32px; padding:12vh 5vw }
+  .about__left{ height:auto; text-align:center }
+}
+
+/* =========================
+   WORKS
+   ========================= */
+.works{ position:relative; padding:12vh 5vw calc(16vh + 60px); background:var(--bg) }
+.grid{ display:grid; gap:2rem; grid-template-columns:1fr; position:relative }
+@media (min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr) } }
+@media (min-width:980px){ .grid{ grid-template-columns:repeat(3,1fr) } }
+
+/* === WORK CARDS === */
+.proj {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 28rem;
+  height: 40rem;
+  padding: 1rem 1rem 2rem 1rem;
+  
+  /* Chaotic vertical placement */
+  margin-top: 0;
+
+  border-radius: 1.64063rem;
+  border: 2.948px solid #000; /* black outline */
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.00) 67.21%,
+      rgba(0, 0, 0, 0.20) 81.81%
+    ),
+    var(--img, #0E0E0E) center/cover no-repeat, #0E0E0E;
+
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.2, .7, 0, 1), border-color 0.35s ease;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.proj:hover {
+  transform: scale(1.06) translateY(var(--offset-y, 0));
+  border-color: #661FFF;
+  z-index: 2;
+}
+
+/* === Content Wrapper (title + chips) === */
+.proj__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Title */
+.proj__title {
+  color: #FFF;
+  font-family: Rubik;
+  font-size: 1.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 2.25rem */
+  letter-spacing: 0.05863rem;
+  width: 25.5625rem;
+  margin: 0 0 10px;
+  text-align: left;
+  text-decoration: none;
+}
+
+/* === Chips === */
+.proj__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.proj:hover .proj__chips {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Individual chip */
+.chip {
+display: flex;
+padding: 0.5rem 1.4375rem;
+justify-content: center;
+align-items: center;
+gap: 0.25rem;
+border-radius: 0.75rem;
+border: 0.983px solid #0E0E0E;
+background: #661FFF;
+color: #FFF;
+font-family: Rubik;
+font-size: 0.8rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.518rem; /* 115% */
+letter-spacing: 0.1465rem;
+text-transform: uppercase;
+}
+
+/* Optional: random chip color palette */
+.proj:hover .chip {
+  background: var(--chip-color, #661FFF);
+}
+
+/* Hover zoom */
+.proj:hover .proj__img{ transform:scale(1.06) }
+
+/* Chaotic vertical placement for cards - smaller offsets to prevent overlap */
+.proj:nth-child(1) { --offset-y: 0; transform: translateY(0); }
+.proj:nth-child(2) { --offset-y: 1.5rem; transform: translateY(1.5rem); }
+.proj:nth-child(3) { --offset-y: -1rem; transform: translateY(-1rem); }
+.proj:nth-child(4) { --offset-y: 2rem; transform: translateY(2rem); }
+.proj:nth-child(5) { --offset-y: 2.5rem; transform: translateY(2.5rem); }
+.proj:nth-child(6) { --offset-y: 1rem; transform: translateY(1rem); }
+.proj:nth-child(7) { --offset-y: -1.5rem; transform: translateY(-1.5rem); }
+.proj:nth-child(8) { --offset-y: 0.75rem; transform: translateY(0.75rem); }
+.proj:nth-child(9) { --offset-y: -1.25rem; transform: translateY(-1.25rem); }
+
+/* Ensure hover scale effect works on all cards */
+.proj:nth-child(1):hover,
+.proj:nth-child(2):hover,
+.proj:nth-child(3):hover,
+.proj:nth-child(4):hover,
+.proj:nth-child(5):hover,
+.proj:nth-child(6):hover,
+.proj:nth-child(7):hover,
+.proj:nth-child(8):hover,
+.proj:nth-child(9):hover {
+  transform: scale(1.06) translateY(var(--offset-y, 0)) !important;
+}
+
+/* Filter (single-select, squarish 32px radius) */
+.filter{ position:sticky; bottom:24px; margin:0 auto 24px; width:max-content; display:flex; gap:8px; align-items:center; justify-content:center; background:rgba(17,17,17,.06); border:2px solid var(--ink); border-radius:32px; padding:8px; box-shadow:0 8px 0 var(--ink); z-index:5 }
+.seg{ border:2px solid var(--ink); background:#fff; color:#000; border-radius:20px; padding:12px 18px; font-weight:900; cursor:pointer; transition:background .2s,color .2s, transform .05s }
+.seg:active{ transform:translateY(1px) }
+.seg.is-active{ background:#000; color:#fff }
+
+/* Custom cursor pill */
+.cursor-pill{ position:fixed; pointer-events:none; padding:8px 16px; border:2px solid var(--ink); border-radius:999px; background:#fff; box-shadow:0 4px 0 var(--ink); font-weight:900; opacity:0; transform:translate(-1000px,-1000px); transition:opacity .12s }
+.works.hovering .cursor-pill{ opacity:1 }
+
+/* =========================
+   FOOTER
+   ========================= */
+.foot{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:end; padding:12vh 5vw calc(12vh + 60px); background:#fff }
+@media (max-width:900px){ .foot{ grid-template-columns:1fr } }
+.foot__title{ font-size:clamp(36px,7vw,92px); margin:0 0 10px; font-weight:900 }
+.foot__sub{ color:#000; font-family:'Rubik', sans-serif; font-size:1.25rem; font-style:normal; font-weight:400; line-height:1.6; letter-spacing:0.05863rem; margin:0 0 1.25rem }
+.btn{ background:#e5e5e5; border:0; border-radius:11px; box-shadow:inset 0 0 0 2px var(--ink); padding:0; text-decoration:none; color:inherit; display:inline-block }
+.btn__inner{ display:block; border:2px solid var(--ink); border-radius:10px; background:#fff; transform:translateY(-4px); padding:12px 18px; font-weight:900; letter-spacing:.06em }
+.btn:active .btn__inner{ transform:translateY(0) }
+.foot__copy {
+position: absolute;
+right: 4rem; /* increased right margin */
+bottom: 2rem;
+color: #5F5F5F;
+font-family: Rubik;
+font-size: 0.8rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.04rem; /* 130% */
+letter-spacing: 0.1465rem;
+text-transform: uppercase;
+text-align: right;
+}
+
+
+/* Remove legal links */
+.foot__legal { display: none; }
+
+
+.foot { position: relative; }
+
+.foot__right{ display:grid; grid-template-rows:auto auto 1fr; justify-items:end; gap:20px; align-items:end }
+.foot__stay{ color:#0E0E0E; text-align:right; font-family:Rubik; font-size:1.64063rem; font-style:normal; font-weight:500; line-height:1.88675rem; /* 115% */ letter-spacing:0.01175rem; margin:0 0 10px }
+.foot__links{ text-align:right; display:grid; gap:10px; align-self:end }
+.foot__links a {
+color: #000;
+font-family: Rubik;
+font-size: 1.32rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.518rem; /* 115% */
+letter-spacing: 0.1465rem;
+text-transform: uppercase;
+text-decoration: none;
+}
+
+
+.foot__links a:hover {
+text-decoration: underline;
+}
+.foot__legal{ display:flex; gap:22px; align-items:center; margin-top:auto }
+.foot__legal a{ color:#777; text-decoration:none; font-weight:800 }
+
+/* =========================
+   GAME OVERLAY
+   ========================= */
+.game{ position:fixed; inset:0; display:grid; grid-template-rows:auto 1fr; place-items:center; padding-top:56px; background:rgba(0,0,0,.3); z-index:60; opacity:0; visibility:hidden; transition:opacity .2s, visibility .2s; pointer-events:none }
+.game.on{ opacity:1; visibility:visible }
+.game__bar{ position:fixed; top:12px; left:50%; transform:translateX(-50%); display:flex; gap:10px; align-items:center; background:#fff; border:2px solid var(--ink); border-radius:14px; padding:8px 12px; box-shadow:0 4px 0 var(--ink); pointer-events:auto }
+.score{ font-weight:900 }
+.btn--ghost .btn__inner{ background:#fff }
+#gameCanvas{ background:#fff; border:3px solid var(--ink); border-radius:16px; box-shadow:0 8px 0 var(--ink); pointer-events:auto }
+.dialog{ position:fixed; bottom:8%; left:50%; transform:translateX(-50%); background:#fff; border:3px solid var(--ink); border-radius:22px; width:min(560px,92vw); padding:22px 24px; text-align:center; display:none; box-shadow:0 12px 0 var(--ink); pointer-events:auto }
+.dialog.show{ display:block }
+.dialog h3{ font-size:40px; margin:.25rem 0 .5rem }
+/* === Works filter: sticky at top within Works only (60px = 3.75rem) === */
+.works .filter{
+  position: sticky !important;
+  top: 3.75rem !important;          /* 60px in rem */
+  margin-top: 1.75rem !important;    /* visual gap above filter */
+  margin-bottom: 1.5rem;             /* space before cards */
+  width: max-content;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+  background: #E0E0E0 !important;
+  border: 0 !important;
+  border-radius: 0.6875rem !important;
+  padding: .5rem !important;
+  box-shadow: 0 0 0 2px #0E0E0E inset !important;
+  z-index: 10;                       /* above cards */
+}
+
+/* 3D category buttons, same feel as .btn__inner */
+.works .seg {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  /* text layer */
+  color: #0E0E0E;
+  font-family: Rubik;
+  font-size: 1 rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.518rem; /* 115% */
+  letter-spacing: 0.1465rem;
+  text-transform: uppercase;
+
+  /* outer shell (like .btn) */
+  background: #e5e5e5;
+  border: 0;
+  border-radius: 0.6875rem;
+  box-shadow: inset 0 0 0 2px var(--ink);
+
+  /* label padding goes on the button itself since we don't add spans */
+  padding: 12px 18px;
+
+  cursor: pointer;
+  transition: transform 0.08s ease;
+}
+
+/* inner plate (use ::before so it paints BEFORE text) */
+.works .seg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--ink);
+  border-radius: 0.6875rem;       /* keep same rounding */
+  background: #fff;
+  transform: translateY(-4px);     /* raised like .btn__inner */
+  transition: transform 0.08s ease, background .2s, border-color .2s;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* pressed animation (same as .btn:active .btn__inner) */
+.works .seg:active::before {
+  transform: translateY(0);
+}
+
+/* Active/selected tab: flat black with white text */
+.works .seg.is-active {
+  background: #000;
+  box-shadow: inset 0 0 0 2px #000;
+  color: #fff;
+  font-family: Rubik;
+  font-size: 1 rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.518rem; /* 115% */
+  letter-spacing: 0.1465rem;
+  text-transform: uppercase;
+}
+.works .seg.is-active::before {
+  background: #000;
+  border-color: #000;
+  transform: translateY(0);
+}
+
+/* Filter responsive: switch to column when buttons don't fit */
+@media (max-width:600px){
+  .works .filter{ flex-direction:column; width:auto; max-width:100% }
+  .works .seg{ width:100% }
+}
+

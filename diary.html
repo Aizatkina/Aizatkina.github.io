@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diary Notes — Aizat Portfolio</title>
+  
+  <!-- Fonts: Rubik + Bungee -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="Styles.css">
+  <style>
+    /* Diary Page Styles */
+    .diary-hero {
+      position: relative;
+      padding: 12vh 6vw 8vh;
+      background: #CDCDCD;
+      text-align: center;
+    }
+
+    .diary-hero__title {
+      font-family: 'Rubik', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 7.5rem);
+      font-weight: 900;
+      color: #0E0E0E;
+      margin: 0 0 1rem;
+      line-height: 1.1;
+    }
+
+    .diary-hero__subtitle {
+      font-family: 'Rubik', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-weight: 400;
+      color: #0E0E0E;
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    .diary-content {
+      position: relative;
+      padding: 8vh 6vw 16vh;
+      background: var(--bg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .diary-entry {
+      margin-bottom: 6rem;
+      padding-bottom: 4rem;
+      border-bottom: 2px solid #E0E0E0;
+    }
+
+    .diary-entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .diary-entry__date {
+      font-family: 'Rubik', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #606060;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 1rem;
+    }
+
+    .diary-entry__title {
+      font-family: 'Rubik', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #0E0E0E;
+      margin: 0 0 1.5rem;
+      line-height: 1.2;
+    }
+
+    .diary-entry__content {
+      font-family: 'Rubik', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #0E0E0E;
+      margin: 0 0 1.5rem;
+    }
+
+    .diary-entry__content p {
+      margin: 0 0 1.5rem;
+    }
+
+    .diary-entry__content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .diary-entry__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .diary-tag {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: #E0E0E0;
+      color: #0E0E0E;
+      font-family: 'Rubik', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .diary-hero {
+        padding: 8vh 4vw 6vh;
+      }
+
+      .diary-content {
+        padding: 6vh 4vw 12vh;
+      }
+
+      .diary-entry {
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Sticky site header -->
+  <header class="hdr" aria-label="Site">
+    <a href="/" class="hdr__link" aria-label="Home">
+      <img class="hdr__logo" src="logo.svg" alt="Site logo">
+    </a>
+  </header>
+  
+  <!-- Floating hand button → right drawer -->
+  <button class="hand" id="drawerToggle" aria-controls="drawer" aria-expanded="false" aria-label="Open menu">
+    <span class="hand__inner">
+      <img src="Hand_icon.svg" alt="Open menu" class="hand__icon">
+    </span>
+  </button>
+
+  <!-- Right drawer -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer__body">
+      <nav class="drawer__nav" aria-label="Primary">
+        <a class="drawer__link" href="/index.html#about">About</a>
+        <a class="drawer__link" href="/index.html#work">My works</a>
+        <a class="drawer__link" href="/diary.html">Diary notes</a>
+        <a class="drawer__link" href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- Diary Hero Section -->
+    <section class="diary-hero">
+      <div class="scallop scallop--hero" aria-hidden="true"></div>
+      <h1 class="diary-hero__title">Diary Notes</h1>
+      <p class="diary-hero__subtitle">Thoughts, experiments, and reflections on design</p>
+    </section>
+
+    <!-- Diary Content -->
+    <div class="diary-content">
+      <!-- Entry 1 -->
+      <article class="diary-entry">
+        <p class="diary-entry__date">January 15, 2025</p>
+        <h2 class="diary-entry__title">Exploring New Design Patterns</h2>
+        <div class="diary-entry__content">
+          <p>
+            Today I spent time exploring new interaction patterns for mobile interfaces. The challenge is creating something that feels both familiar and innovative. I've been experimenting with micro-interactions that provide subtle feedback without being distracting.
+          </p>
+          <p>
+            One thing I've learned is that the best designs often come from constraints. When you have unlimited possibilities, it's easy to get lost. But when you're working within specific boundaries, creativity truly flourishes.
+          </p>
+        </div>
+        <div class="diary-entry__tags">
+          <span class="diary-tag">Design</span>
+          <span class="diary-tag">Process</span>
+          <span class="diary-tag">Experiments</span>
+        </div>
+      </article>
+
+      <!-- Entry 2 -->
+      <article class="diary-entry">
+        <p class="diary-entry__date">January 10, 2025</p>
+        <h2 class="diary-entry__title">The Power of Typography</h2>
+        <div class="diary-entry__content">
+          <p>
+            Typography is often overlooked, but it's one of the most powerful tools in a designer's arsenal. The right typeface can completely change the mood and perception of a design. I've been studying how different fonts communicate different emotions and messages.
+          </p>
+          <p>
+            What fascinates me is how subtle changes in letter spacing, line height, or font weight can dramatically alter how text is perceived. It's these small details that separate good design from great design.
+          </p>
+        </div>
+        <div class="diary-entry__tags">
+          <span class="diary-tag">Typography</span>
+          <span class="diary-tag">Details</span>
+        </div>
+      </article>
+
+      <!-- Entry 3 -->
+      <article class="diary-entry">
+        <p class="diary-entry__date">January 5, 2025</p>
+        <h2 class="diary-entry__title">Building Accessible Interfaces</h2>
+        <div class="diary-entry__content">
+          <p>
+            Accessibility isn't just a checkbox—it's a fundamental part of good design. I've been diving deeper into WCAG guidelines and learning how to build interfaces that work for everyone. The more I learn, the more I realize how much I still have to discover.
+          </p>
+          <p>
+            One key insight: when you design for accessibility, you often end up with a better experience for everyone. Features like clear contrast, readable fonts, and intuitive navigation benefit all users, not just those with specific needs.
+          </p>
+        </div>
+        <div class="diary-entry__tags">
+          <span class="diary-tag">Accessibility</span>
+          <span class="diary-tag">UX</span>
+          <span class="diary-tag">Inclusive Design</span>
+        </div>
+      </article>
+
+      <!-- Entry 4 -->
+      <article class="diary-entry">
+        <p class="diary-entry__date">December 28, 2024</p>
+        <h2 class="diary-entry__title">Finding Inspiration in Unexpected Places</h2>
+        <div class="diary-entry__content">
+          <p>
+            Sometimes the best design inspiration comes from outside the digital world. I've been looking at architecture, nature, and even music for ideas about rhythm, balance, and flow. There's something beautiful about finding connections between different creative disciplines.
+          </p>
+          <p>
+            This week, I visited a local art museum and was struck by how the layout and flow of the space influenced my experience. It made me think about how we can apply similar principles to digital interfaces—creating journeys that feel natural and intuitive.
+          </p>
+        </div>
+        <div class="diary-entry__tags">
+          <span class="diary-tag">Inspiration</span>
+          <span class="diary-tag">Process</span>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

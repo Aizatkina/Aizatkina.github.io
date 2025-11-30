@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CarToonz — Aizat Portfolio</title>
+  
+  <!-- Fonts: Rubik + Bungee -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="Styles.css">
+  <link rel="stylesheet" href="cartoonz.css">
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Sticky site header -->
+  <header class="hdr" aria-label="Site">
+    <a href="/" class="hdr__link" aria-label="Home">
+      <img class="hdr__logo" src="logo.svg" alt="Site logo">
+    </a>
+  </header>
+  
+  <!-- Floating hand button → right drawer -->
+  <button class="hand" id="drawerToggle" aria-controls="drawer" aria-expanded="false" aria-label="Open menu">
+    <span class="hand__inner">
+      <img src="Hand_icon.svg" alt="Open menu" class="hand__icon">
+    </span>
+  </button>
+
+  <!-- Right drawer -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer__body">
+      <nav class="drawer__nav" aria-label="Primary">
+        <a class="drawer__link" href="/index.html#about">About</a>
+        <a class="drawer__link" href="/index.html#work">My works</a>
+        <a class="drawer__link" href="/diary.html">Diary notes</a>
+        <a class="drawer__link" href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Video Hero Section -->
+  <div class="video-hero" id="videoHero">
+    <video id="heroVideo" autoplay muted loop playsinline>
+      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      <!-- Fallback for browsers that don't support video -->
+      Your browser does not support the video tag.
+    </video>
+    <button class="video-control" id="videoPlayPause" aria-label="Play/Pause video">
+      <span class="video-control__icon video-control__icon--play" aria-hidden="true">▶</span>
+      <span class="video-control__icon video-control__icon--pause" aria-hidden="true">⏸</span>
+    </button>
+  </div>
+
+  <!-- Project Content -->
+  <main id="main" class="project-content">
+    <!-- Introduction Section -->
+    <section class="introduction">
+      <div class="scallop scallop--introduction" aria-hidden="true"></div>
+      <div class="introduction__container">
+        <!-- Left side: Logo, Title, Chips, and Description -->
+        <div class="introduction__left">
+          <div class="introduction__title-wrapper">
+            <img src="Cartoonz_logo.svg" alt="CarToonz logo" class="introduction__logo">
+            <h1 class="introduction__title">CarToonz</h1>
+          </div>
+          <div class="introduction__chips">
+            <span class="introduction__chip">Mobility Experience</span>
+            <span class="introduction__chip">Entertainment & Education</span>
+          </div>
+          <p class="introduction__description">
+            CarToonz is an interactive in-car experience designed to transform car windows into playful digital canvases where kids can draw, create stories, and explore their imagination. Developed as part of a university curriculum in collaboration with Mercedes, the project reimagines family travel as a space for creativity and connection. By turning passive rides into shared adventures, CarToonz helps children and parents bond through engaging, interactive fun.
+          </p>
+        </div>
+        
+        <!-- Right side: Creator names -->
+        <div class="introduction__creators">
+          Aizat Myrzakhmetova<br>
+          Liliána Bitó<br>
+          Luca Sára Kiss
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Space Section -->
+    <section class="problem-space">
+      <div class="scallop scallop--problem-space" aria-hidden="true"></div>
+      <div class="problem-space__container">
+        <div class="problem-space__header">
+          <button class="key problem-space__key" aria-label="1">1</button>
+          <h2 class="problem-space__title">Problem space</h2>
+        </div>
+        <div class="problem-space__content">
+          <p class="problem-space__text">
+            As part of a university collaboration with Mercedes, we were tasked to create a speculative 10–20-year in-car experience exploring hyperconnectivity, where the interior becomes the heart of interaction.<br><br>
+            As a team of three, we brought our personal passions into the project and shared a desire to create something meaningful for children. We imagined a self-driving Mercedes interior that gives families the freedom to learn, create, and enjoy time together, guiding our brainstorming around playful learning, creativity, and cooperation. This led us to our favorite concept, "Tell the tale together," where families co-create stories with the help of an AI companion and immersive in-car visuals.
+          </p>
+          <div class="problem-space__image">
+            <img src="CarToonz_BrainstormIdeaMap.png" alt="CarToonz brainstorming idea map">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research">
+      <div class="scallop scallop--research" aria-hidden="true"></div>
+      <div class="research__container">
+        <div class="research__header">
+          <button class="key research__key" aria-label="2">2</button>
+          <h2 class="research__title">Research</h2>
+        </div>
+        <div class="research__content">
+          <p class="research__text">
+            To understand how children and families experience car travel today, we conducted interviews with six participants—three parents of current school-aged children (ages 3–14) and three grandparents who care for grandchildren on weekends.<br><br>
+            As findings of research we discovered that:
+          </p>
+          <div class="research__columns">
+            <div class="research__column">
+              <div class="research__icon">
+                <img src="" alt="Typical car scenarios icon" class="research__icon-img">
+              </div>
+              <h3 class="research__column-title">Typical car scenarios</h3>
+              <ul class="research__bullets">
+                <li>Daily school and kindergarten drop-offs</li>
+                <li>Long trips to grandparents or for errands</li>
+                <li>Kids start off energetic but calm down later</li>
+                <li>Managing different age groups' needs</li>
+              </ul>
+            </div>
+            <div class="research__column">
+              <div class="research__icon">
+                <img src="" alt="In-car activities icon" class="research__icon-img">
+              </div>
+              <h3 class="research__column-title">In-car activities</h3>
+              <ul class="research__bullets">
+                <li>Drawing, talking, and playing with toys</li>
+                <li>Listening to music or audiobooks</li>
+                <li>Playing guessing games or word games</li>
+                <li>Looking out the window and spotting objects</li>
+                <li>Using tablets sparingly for educational content</li>
+              </ul>
+            </div>
+            <div class="research__column">
+              <div class="research__icon">
+                <img src="" alt="Common pain points icon" class="research__icon-img">
+              </div>
+              <h3 class="research__column-title">Common pain points</h3>
+              <ul class="research__bullets">
+                <li>Kids misbehaving and causing distractions</li>
+                <li>Difficulty in keeping kids entertained</li>
+                <li>Noise levels and sibling conflicts</li>
+                <li>Safety concerns during long trips</li>
+              </ul>
+            </div>
+            <div class="research__column">
+              <div class="research__icon">
+                <img src="" alt="Age-specific needs icon" class="research__icon-img">
+              </div>
+              <h3 class="research__column-title">Age-specific needs</h3>
+              <ul class="research__bullets">
+                <li>Younger kids need frequent activity changes</li>
+                <li>Older kids may require more engaging activities</li>
+                <li>Different language and communication needs</li>
+                <li>Managing sleep schedules to avoid crankiness</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept">
+      <div class="scallop scallop--concept" aria-hidden="true"></div>
+      <div class="concept__container">
+        <div class="concept__header">
+          <button class="key concept__key" aria-label="3">3</button>
+          <h2 class="concept__title">Developed concept</h2>
+        </div>
+        <div class="concept__content">
+          <!-- Persona Sub-chapter -->
+          <div class="concept__subchapter">
+            <h3 class="concept__subchapter-title">Persona</h3>
+            <p class="concept__subchapter-text">
+              To ground our design decisions, we created personas based on real interviews with parents and children, capturing both the playful needs of young passengers and the responsibilities of the adults who travel with them.This helped us see the car as a shared ecosystem where every feature must support both children's creativity and parents' calmness.
+            </p>
+            <div class="persona-image">
+              <img src="" alt="Persona image" class="persona-image__img">
+            </div>
+          </div>
+
+          <!-- Design Opportunities Sub-chapter -->
+          <div class="concept__subchapter">
+            <h3 class="concept__subchapter-title">Design opportunities</h3>
+            <p class="concept__subchapter-text">
+              Inspired by the question "How might we provide engaging AND safe activities that don't rely on screens?", we began exploring functions that could meaningfully support both of our personas.
+            </p>
+            <div class="persona-image">
+              <img src="" alt="Design opportunities image" class="persona-image__img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Flow and Wireframes Section -->
+    <section class="user-flow">
+      <div class="scallop scallop--user-flow" aria-hidden="true"></div>
+      <div class="user-flow__container">
+        <div class="user-flow__header">
+          <button class="key user-flow__key" aria-label="4">4</button>
+          <h2 class="user-flow__title">User flow and wireframes</h2>
+        </div>
+        <div class="user-flow__content">
+          <div class="user-flow__subchapter">
+            <p class="user-flow__text">
+              To translate our concept into a tangible experience, we mapped out the full user flow for both the child and parent interfaces.
+            </p>
+            <div class="persona-image">
+              <img src="" alt="User flow and wireframes image" class="persona-image__img">
+            </div>
+          </div>
+
+          <!-- Usability Testing Sub-chapter -->
+          <div class="concept__subchapter">
+            <h3 class="concept__subchapter-title">Usability testing</h3>
+            <p class="concept__subchapter-text">
+              To validate our interaction decisions, we tested the placement and accessibility of key functions with children aged 5–7 in a real-life setup. This helped us confirm whether the interface was intuitive and reachable.
+            </p>
+            <div class="persona-image">
+              <img src="" alt="Usability testing image" class="persona-image__img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Deliverable Section -->
+    <section class="final-deliverable">
+      <div class="scallop scallop--final-deliverable" aria-hidden="true"></div>
+      <div class="final-deliverable__container">
+        <div class="final-deliverable__header">
+          <h2 class="final-deliverable__title">Final Deliverable</h2>
+        </div>
+        <div class="final-deliverable__content">
+          <p class="final-deliverable__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Video scroll-out effect
+    const videoHero = document.getElementById('videoHero');
+    
+    // Video play/pause control
+    const heroVideo = document.getElementById('heroVideo');
+    const videoPlayPause = document.getElementById('videoPlayPause');
+    
+    if (heroVideo && videoPlayPause && videoHero) {
+      // Update button state based on video playing state
+      function updatePlayPauseButton() {
+        if (heroVideo.paused) {
+          videoHero.classList.remove('is-playing');
+        } else {
+          videoHero.classList.add('is-playing');
+        }
+      }
+      
+      // Toggle play/pause
+      videoPlayPause.addEventListener('click', () => {
+        if (heroVideo.paused) {
+          heroVideo.play();
+        } else {
+          heroVideo.pause();
+        }
+        updatePlayPauseButton();
+      });
+      
+      // Update button when video state changes
+      heroVideo.addEventListener('play', updatePlayPauseButton);
+      heroVideo.addEventListener('pause', updatePlayPauseButton);
+      
+      // Initial state
+      updatePlayPauseButton();
+    }
+    let videoTicking = false;
+
+    function updateVideoHero() {
+      if (!videoHero) return;
+      const scrolled = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const videoHeight = windowHeight * 0.85; // 85vh
+      const scrollThreshold = videoHeight * 0.8; // Start scrolling out at 80% of video height
+      
+      // Start scrolling video down when user scrolls past 80% of video
+      if (scrolled > scrollThreshold) {
+        // Calculate how far past the threshold we've scrolled
+        const scrollPast = scrolled - scrollThreshold;
+        // Move video down proportionally to scroll amount
+        const translateY = scrollPast;
+        videoHero.style.transform = `translateY(${translateY}px)`;
+        
+        // Fade out as it scrolls down
+        const fadeProgress = scrollPast / (videoHeight * 0.2);
+        videoHero.style.opacity = Math.max(0, 1 - fadeProgress);
+      } else {
+        // Before threshold, keep video fixed at top
+        videoHero.style.transform = 'translateY(0)';
+        videoHero.style.opacity = 1;
+      }
+
+      videoTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!videoTicking) {
+        window.requestAnimationFrame(() => {
+          updateVideoHero();
+          videoTicking = false;
+        });
+        videoTicking = true;
+      }
+    }, { passive: true });
+
+    // Initialize video hero
+    updateVideoHero();
+
+    // Problem Space key button: press anim + color rotate
+    const PALETTE = ['#FFDC23', '#661FFF', '#F8376E', '#00FCAA', '#FFFFFF'];
+    function nextColor(current) {
+      const choices = PALETTE.filter(c => c.toLowerCase() !== (current || '').toLowerCase());
+      return choices[Math.floor(Math.random() * choices.length)];
+    }
+    
+    function setupKeyButton(keyElement) {
+      if (!keyElement) return;
+      keyElement.addEventListener('click', () => {
+        keyElement.classList.add('is-pressed');
+        setTimeout(() => keyElement.classList.remove('is-pressed'), 110);
+
+        const computed = getComputedStyle(keyElement).backgroundColor;
+        let currentHex = '';
+        if (computed.startsWith('rgb')) {
+          const [r, g, b] = computed.match(/\d+/g).map(Number);
+          currentHex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+        } else {
+          currentHex = computed;
+        }
+        keyElement.style.backgroundColor = nextColor(currentHex);
+      });
+    }
+    
+    // Setup all key buttons
+    setupKeyButton(document.querySelector('.problem-space__key'));
+    setupKeyButton(document.querySelector('.research__key'));
+    setupKeyButton(document.querySelector('.concept__key'));
+    setupKeyButton(document.querySelector('.user-flow__key'));
+  </script>
+</body>
+</html>

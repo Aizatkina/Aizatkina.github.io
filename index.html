@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aizat — Portfolio</title>
+  
+  <!-- Fonts: Rubik + Bungee -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Sticky site header (single anchor; no nesting) -->
+  <header class="hdr" aria-label="Site">
+    <a href="/" class="hdr__link" aria-label="Home">
+      <img class="hdr__logo" src="logo.svg" alt="Site logo">
+    </a>
+  </header>
+  
+  <!-- Floating hand button → right drawer -->
+  <button class="hand" id="drawerToggle" aria-controls="drawer" aria-expanded="false" aria-label="Open menu">
+    <span class="hand__inner">
+      <img src="Hand_icon.svg" alt="Open menu" class="hand__icon">
+    </span>
+  </button>
+
+  <!-- Right drawer -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer__body">
+      <nav class="drawer__nav" aria-label="Primary">
+        <a class="drawer__link" href="#about">About</a>
+        <a class="drawer__link" href="#work">My works</a>
+        <a class="drawer__link" href="/diary.html">Diary notes</a>
+        <a class="drawer__link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <h1 id="hero-title" class="hero__title">
+          <span class="blk">Designing digital</span><br />
+          <span class="blk">with a sense of</span><br />
+          <button id="playfulBtn" class="playful" aria-label="Play the snake game">
+            <span class="playful__wrap" aria-hidden="true">
+              <span class="playful__letter">P</span>
+              <span class="playful__letter">L</span>
+              <span class="playful__letter">A</span>
+              <span class="playful__letter">Y</span>
+            </span>
+          </button>
+          <span>and</span> <br />
+          <span class="tactile" aria-label="tactile">
+            <button class="key" aria-label="t">t</button>
+            <button class="key" aria-label="a">a</button>
+            <button class="key" aria-label="c">c</button>
+            <button class="key" aria-label="t">t</button>
+            <button class="key" aria-label="i">i</button>
+            <button class="key" aria-label="l">l</button>
+            <button class="key" aria-label="e">e</button>
+          </span><br />
+        </h1>
+
+        <!-- Big centered hero logo (separate element; no duplicate IDs) -->
+        <div class="hero__logo">
+          <a href="/" class="hdr__link" aria-label="Home">
+            <img class="hdr__logo" src="logo.svg" alt="Site logo">
+          </a>
+        </div>
+
+        <!-- scalloped footer of hero -->
+        <div class="scallop scallop--hero" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT (MacBook-height split) -->
+    <section id="about" class="about">
+      <div class="about__left">
+        <h2 class="about__title">The story<br>of my life.</h2>
+        <p class="about__txt">
+          I build worlds inside the screen. Here, every project is an experiment in how design can move, breathe, and connect. </br> I also capture my personal reflections, stories, and experiments in my digital diary—my space to explore ideas and moments that inspire me. Curious? Check it out ↓
+        </p>
+        <a class="btn about__cta" href="/diary.html" aria-label="Open diary notes">
+          <span class="btn__inner">Notes and Thoughts</span>
+        </a>
+      </div>
+
+      <div class="about__right">
+        <div class="card">
+          <div class="card__top">
+            <div class="card__avatar">
+              <img src="avatar.jpeg" alt="Aizat Myrzakhmetova" />
+            </div>
+            <div class="card__who">
+              <strong class="card__name">Aizat Myrzakhmetova</strong><br />
+              <span class="card__role">Made in Kazakhstan 🇰🇿</span>
+            </div>
+          </div>
+
+          <div class="card__body">
+            <p id="typedBio" class="typed" aria-live="polite" aria-atomic="true"></p>
+          </div>
+
+          <div class="card__actions">
+            <a class="keycap" href="https://drive.google.com/file/d/1JhDcgFtxHQlNw49CAPpF1VVKMomLrVA1/view?usp=sharing" target="_blank" rel="noreferrer noopener" aria-label="CV">
+              <span><img src="cv_icon.svg" alt="CV icon"></span>
+            </a>
+            <a class="keycap" href="https://www.linkedin.com/in/aizat-myrzakhmetova/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+              <span><img src="linkedin_icon.svg" alt="LinkedIn icon"></span>
+            </a>
+            <a class="keycap" href="https://www.behance.net/aizatmyrzakh" target="_blank" rel="noreferrer noopener" aria-label="Behance">
+              <span><img src="Behance_icon.svg" alt="Behance icon"></span>
+            </a>
+            <a class="keycap" href="mailto:Aizatkina1104@gmail.com" aria-label="Email Aizat Myrzakhmetova">
+              <span><img src="email_icon.svg" alt="Email icon"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scallop scallop--about" aria-hidden="true"></div>
+    </section>
+
+    <!-- WORKS -->
+    <section id="work" class="works" aria-labelledby="work-title">
+      <h2 id="work-title" class="visually-hidden">Work</h2>
+
+      <!-- floating filter (inside section only) -->
+      <div class="filter" role="tablist" aria-label="Filter projects">
+        <button class="seg is-active" role="tab" aria-selected="true" data-filter="product">Product design</button>
+        <button class="seg" role="tab" aria-selected="false" data-filter="experimentals">Experimentals</button>
+        <button class="seg" role="tab" aria-selected="false" data-filter="drawings">Drawings</button>
+      </div>
+
+      <!-- custom cursor pill -->
+      <div id="cursorPill" class="cursor-pill">VIEW WORK</div>
+
+      <div class="grid">
+  <!-- 1. Product design – Root -->
+  <a href="https://www.behance.net/gallery/217143493/Root-Empowering-producers-agriculture" target="_blank" rel="noreferrer noopener" class="proj" data-category="product"
+     style="--img:url('Root_image.png')"
+     aria-label="Open: Root — Empowering producers & agriculture">
+    <div class="proj__content">
+      <div class="proj__chips">
+        <span class="chip">Agriculture</span>
+        <span class="chip">Service Design</span>
+      </div>
+      <h3 class="proj__title">Root: Empowering producers &amp; agriculture</h3>
+    </div>
+  </a>
+
+  <!-- 2. Product design – Eurasian Banking App -->
+  <a href="https://www.behance.net/gallery/216673845/Innovative-Banking-Fintech" target="_blank" rel="noreferrer noopener" class="proj" data-category="product"
+     style="--img:url('Smartbank_image.png')"
+     aria-label="Open: Eurasian Banking App">
+    <div class="proj__content">
+      <div class="proj__chips">
+        <span class="chip">Fintech</span>
+        <span class="chip">Released app</span>
+      </div>
+      <h3 class="proj__title">Eurasian Banking App</h3>
+    </div>
+  </a>
+
+  <!-- 3. Product design – Mobile App DOM -->
+  <a href="https://www.behance.net/gallery/180275261/Mobile-App-DOM-Your-Home-for-Long-Term-Rentals" target="_blank" rel="noreferrer noopener" class="proj" data-category="product"
+     style="--img:url('DOM_image.png')"
+     aria-label="Open: Mobile App DOM">
+    <div class="proj__content">
+      <div class="proj__chips">
+        <span class="chip">Real estate</span>
+      </div>
+      <h3 class="proj__title">DOM: Home for long-term rentals</h3>
+    </div>
+  </a>
+
+  <!-- 4. Product design – Pottery workshop "Keramist" -->
+  <a href="https://www.behance.net/gallery/159760291/Business-website-of-the-pottery-workshop-Keramist" target="_blank" rel="noreferrer noopener" class="proj" data-category="product"
+     style="--img:url('Keramist_image.png')"
+     aria-label="Open: Pottery workshop Keramist">
+    <div class="proj__content">
+      <div class="proj__chips">
+        <span class="chip">Pottery</span>
+        <span class="chip">Released</span>
+      </div>
+      <h3 class="proj__title">Business website of the pottery workshop "Keramist"</h3>
+    </div>
+  </a>
+
+  <!-- 5. Product design – CarToonz -->
+  <a href="cartoonz.html" class="proj" data-category="product"
+     style="--img:url('CarToonz_image.png')"
+     aria-label="Open: CarToonz">
+    <div class="proj__content">
+      <div class="proj__chips">
+        <span class="chip">Mobility Experience</span>
+        <span class="chip">Entertainment & Education</span>
+      </div>
+      <h3 class="proj__title">CarToonz</h3>
+    </div>
+  </a>
+
+  <!-- 6. Experimentals – Footprints -->
+  <a href="#" class="proj" data-category="experimentals"
+     style="--img:url('https://picsum.photos/800/1140?random=206')"
+     aria-label="Open: Footprints">
+    <div class="proj__content">
+      <div class="proj__chips">
+        <span class="chip">Sustainability</span>
+        <span class="chip">AR</span>
+      </div>
+      <h3 class="proj__title">Footprints</h3>
+    </div>
+  </a>
+</div>
+
+      <div class="scallop scallop--works" aria-hidden="true"></div>
+    </section>
+
+    <!-- FOOTER / CTA -->
+    <footer id="contact" class="foot" aria-labelledby="cta-title">
+      <div class="foot__left">
+        <h2 id="cta-title" class="foot__title">Have a project<br>in mind?</h2>
+        <p class="foot__sub">Let's have a magic and bring your vision to life</p>
+        <a class="btn" href="mailto:Aizatkina1104@gmail.com"><span class="btn__inner">CONTACT ME!</span></a>
+        <p class="foot__copy">©2025 Aizat Myrzakhmetova. All rights reserved.</p>
+      </div>
+
+      <div class="foot__right">
+       <div class="foot__logo">
+  <img src="logo.svg" alt="Aizat Myrzakhmetova logo" width="160" height="auto" />
+        </div>
+        <div class="foot__links">
+          <h4 class="foot__stay">Stay Connected</h4>
+        <a href="#" target="_blank" href="https://www.behance.net/aizatmyrzakh" >BEHANCE</a>
+          <a href="https://www.linkedin.com/in/aizat-myrzakhmetova/" target="_blank" rel="noreferrer noopener">LINKEDIN</a>
+          <a href="mailto:Aizatkina1104@gmail.com">Aizatkina1104@gmail.com</a>
+        </div>
+     
+      </div>
+      <div class="scallop scallop--foot" aria-hidden="true"></div>
+    </footer>
+  </main>
+
+  <div id="gameOverlay" class="game" aria-hidden="true">
+    <div class="game__bar">
+      <span class="score">Score: <span id="scoreVal">0</span></span>
+      <button id="exitGame" class="btn btn--ghost"><span class="btn__inner">Exit game</span></button>
+    </div>
+    <canvas id="gameCanvas" width="720" height="420" aria-label="Snake game"></canvas>
+    <div id="gameOver" class="dialog" role="dialog" aria-modal="true" aria-labelledby="goTitle">
+      <h3 id="goTitle">Game Over!</h3>
+      <p>Final Score: <span id="finalScore">0</span></p>
+      <div class="dialog__actions">
+        <button id="playAgain" class="btn"><span class="btn__inner">Play again</span></button>
+        <button id="exitGame2" class="btn btn--ghost"><span class="btn__inner">Exit game</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
