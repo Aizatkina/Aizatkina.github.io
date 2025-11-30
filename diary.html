@@ -116,6 +116,22 @@
       letter-spacing: 0.05em;
     }
 
+    /* White scallop after diary hero - circle centers align with bottom edge */
+    .scallop--diary-white {
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #CDCDCD;
+      z-index: 1;
+      pointer-events: none;
+      mask: radial-gradient(30px at 30px 30px, #000 98%, transparent 101%) left/60px 60px repeat-x;
+      -webkit-mask: radial-gradient(30px at 30px 30px, #000 98%, transparent 101%) left/60px 60px repeat-x;
+      clip-path: inset(30px 0 0 0);
+      -webkit-clip-path: inset(30px 0 0 0);
+    }
+
     @media (max-width: 768px) {
       .diary-hero {
         padding: 8vh 4vw 6vh;
@@ -168,6 +184,8 @@
       <div class="scallop scallop--hero" aria-hidden="true"></div>
       <h1 class="diary-hero__title">Diary Notes</h1>
       <p class="diary-hero__subtitle">Thoughts, experiments, and reflections on design</p>
+      <!-- White scallop with circle centers at bottom edge -->
+      <div class="scallop scallop--diary-white" aria-hidden="true"></div>
     </section>
 
     <!-- Diary Content -->
@@ -175,74 +193,53 @@
       <!-- Entry 1 -->
       <article class="diary-entry">
         <p class="diary-entry__date">January 15, 2025</p>
-        <h2 class="diary-entry__title">Exploring New Design Patterns</h2>
+        <h2 class="diary-entry__title">My design manifesto</h2>
         <div class="diary-entry__content">
           <p>
-            Today I spent time exploring new interaction patterns for mobile interfaces. The challenge is creating something that feels both familiar and innovative. I've been experimenting with micro-interactions that provide subtle feedback without being distracting.
+            <strong>1.</strong> I refuse to design for endless growth. I design for enough: for lives where well‑being, relationships, and ecological limits matter more than output, profit, or "scale."
           </p>
           <p>
-            One thing I've learned is that the best designs often come from constraints. When you have unlimited possibilities, it's easy to get lost. But when you're working within specific boundaries, creativity truly flourishes.
+            <strong>2.</strong> I refuse to treat GDP, engagement, or productivity as signs of success. For me, success means people having time, safety, care, and space to do what truly matters to them.
+          </p>
+          <p>
+            <strong>3.</strong> I refuse to design systems that speed life up. Degrowth means slowing down. I design for the real pace of human life: rest, boredom, play, time with loved ones, and unplanned moments.
+          </p>
+          <p>
+            <strong>4.</strong> I refuse to turn people into resources. People's attention, emotions, cultures, and data are not raw material for extraction. I design so that people can keep control over their own lives and choices.
+          </p>
+          <p>
+            <strong>5.</strong> I refuse to overwrite people's own interests with "optimization goals." My role is to support what people already care about—not to push them toward productivity, self-tracking, or constant improvement.
+          </p>
+          <p>
+            <strong>6.</strong> I refuse to design tools that demand people become more flexible, efficient, or available just to survive. A humane system adapts to people; people should not have to bend themselves to fit systems.
+          </p>
+          <p>
+            <strong>7.</strong> I refuse to hide harms behind green or ethical marketing. Degrowth design means reducing real harm: less energy use, less waste, less burnout, less pressure—not just better branding.
+          </p>
+          <p>
+            <strong>8.</strong> I refuse to design from above for "users" I never meet. Degrowth is about deciding together. I work with the people affected, so that designs grow out of their needs, cultures, and limits.
+          </p>
+          <p>
+            <strong>9.</strong> I refuse the myth that bigger is always better. I prefer small, local, and specific projects that truly serve their communities over global solutions that flatten differences and extract value.
+          </p>
+          <p>
+            <strong>10.</strong> I refuse to treat communities as markets or testbeds. Communities are not growth channels. They are self‑determining groups of people whose knowledge, desires, and boundaries must be respected.
+          </p>
+          <p>
+            <strong>11.</strong> I refuse to ignore hidden labor and hidden costs. When a design depends on unpaid, invisible, or distant work—or on environmental damage—I will try to name it, reduce it, or choose another path.
+          </p>
+          <p>
+            <strong>12.</strong> I refuse to design systems that quietly narrow people's options. Degrowth design should open space: more ways to say no, more ways to step back, more ways to live with less pressure and more meaning.
+          </p>
+          <p>
+            <strong>13.</strong> I refuse to serve clients or institutions that fundamentally disregard people's well‑being or the planet's limits. I will try to shift their direction; if that fails, I will walk away.
+          </p>
+          <p>
+            <strong>14.</strong> I refuse to see this manifesto as finished. As I learn from people and from the world around me, I will change it. What must remain is this: design should help us live well within limits, protect what people truly value, and never sacrifice human dignity or the Earth for growth.
           </p>
         </div>
         <div class="diary-entry__tags">
-          <span class="diary-tag">Design</span>
-          <span class="diary-tag">Process</span>
-          <span class="diary-tag">Experiments</span>
-        </div>
-      </article>
-
-      <!-- Entry 2 -->
-      <article class="diary-entry">
-        <p class="diary-entry__date">January 10, 2025</p>
-        <h2 class="diary-entry__title">The Power of Typography</h2>
-        <div class="diary-entry__content">
-          <p>
-            Typography is often overlooked, but it's one of the most powerful tools in a designer's arsenal. The right typeface can completely change the mood and perception of a design. I've been studying how different fonts communicate different emotions and messages.
-          </p>
-          <p>
-            What fascinates me is how subtle changes in letter spacing, line height, or font weight can dramatically alter how text is perceived. It's these small details that separate good design from great design.
-          </p>
-        </div>
-        <div class="diary-entry__tags">
-          <span class="diary-tag">Typography</span>
-          <span class="diary-tag">Details</span>
-        </div>
-      </article>
-
-      <!-- Entry 3 -->
-      <article class="diary-entry">
-        <p class="diary-entry__date">January 5, 2025</p>
-        <h2 class="diary-entry__title">Building Accessible Interfaces</h2>
-        <div class="diary-entry__content">
-          <p>
-            Accessibility isn't just a checkbox—it's a fundamental part of good design. I've been diving deeper into WCAG guidelines and learning how to build interfaces that work for everyone. The more I learn, the more I realize how much I still have to discover.
-          </p>
-          <p>
-            One key insight: when you design for accessibility, you often end up with a better experience for everyone. Features like clear contrast, readable fonts, and intuitive navigation benefit all users, not just those with specific needs.
-          </p>
-        </div>
-        <div class="diary-entry__tags">
-          <span class="diary-tag">Accessibility</span>
-          <span class="diary-tag">UX</span>
-          <span class="diary-tag">Inclusive Design</span>
-        </div>
-      </article>
-
-      <!-- Entry 4 -->
-      <article class="diary-entry">
-        <p class="diary-entry__date">December 28, 2024</p>
-        <h2 class="diary-entry__title">Finding Inspiration in Unexpected Places</h2>
-        <div class="diary-entry__content">
-          <p>
-            Sometimes the best design inspiration comes from outside the digital world. I've been looking at architecture, nature, and even music for ideas about rhythm, balance, and flow. There's something beautiful about finding connections between different creative disciplines.
-          </p>
-          <p>
-            This week, I visited a local art museum and was struck by how the layout and flow of the space influenced my experience. It made me think about how we can apply similar principles to digital interfaces—creating journeys that feel natural and intuitive.
-          </p>
-        </div>
-        <div class="diary-entry__tags">
-          <span class="diary-tag">Inspiration</span>
-          <span class="diary-tag">Process</span>
+          <span class="diary-tag">Philosophical</span>
         </div>
       </article>
     </div>
